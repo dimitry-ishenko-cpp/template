@@ -5,19 +5,19 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+#add_definitions(-D...)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+include_directories(include lib src)
+
+#find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+
 #set(CMAKE_AUTOMOC ON)
+#set(CMAKE_AUTORCC ON)
 #set(CMAKE_AUTOUIC ON)
 
-#find_package(Qt5Core)
-#find_package(Qt5Widgets)
-
-#add_definitions(-D...)
-
-include_directories(src)
-
-set(MAIN src/main.cpp)
-set(FILES LICENSE.md README.md)
+set(LIBS)
+set(SOURCES src/main.cpp)
+set(DOCS LICENSE.md README.md)
 
 # sub-project(s)
 #option(BUILD_... "Build ..." ON)
@@ -28,26 +28,26 @@ set(FILES LICENSE.md README.md)
 
 ########################
 # executable
-add_executable(${PROJECT_NAME} ${MAIN})
+add_executable(${PROJECT_NAME} ${LIBS} ${SOURCES})
 #target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets)
 
 # dynamic library
-#add_library(${PROJECT_NAME} SHARED ${HEADERS} ${SOURCES})
+#add_library(${PROJECT_NAME} SHARED ${LIBS} ${SOURCES})
 #set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 #set_target_properties(${PROJECT_NAME} PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 
 # static library
-#add_library(${PROJECT_NAME} STATIC ${HEADERS} ${SOURCES})
+#add_library(${PROJECT_NAME} STATIC ${LIBS} ${SOURCES})
 
 # install
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 #install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 #install(DIRECTORY include/ DESTINATION include)
-install(FILES ${FILES} DESTINATION share/doc/${PROJECT_NAME})
+install(FILES ${DOCS} DESTINATION share/doc/${PROJECT_NAME})
 
 ########################
 # object files
-#add_library(${PROJECT_NAME} OBJECT ${HEADERS} ${SOURCES})
+#add_library(${PROJECT_NAME} OBJECT ${LIBS} ${SOURCES})
 
 # to use in other project(s), add $<TARGET_OBJECTS:...>
 
