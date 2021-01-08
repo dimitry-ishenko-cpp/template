@@ -2,34 +2,57 @@
 
 Project description.
 
-## Getting Started
+## Installation
 
 ### Prerequisites
 
-* Project X
-* Project Y
-* Project Z
+* Project A
+* Project B
 
-### Installation
+### Binary
 
-Installation instructions.
+Debian/Ubuntu/etc:
 
-### Usage
+```shell
+$ ver=0.0
+$ url=https://github.com/.../releases/download/v${ver}
+$ wget ${url}/..._${ver}_amd64.deb
+$ sudo apt install ./..._${ver}_amd64.deb
+```
 
-Usage instructions.
+RaspberryPi:
 
-Example:
+```shell
+$ ver=0.0
+$ url=https://github.com/.../releases/download/v${ver}
+$ wget ${url}/..._${ver}_armhf.deb
+$ sudo apt install ./..._${ver}_armhf.deb
+```
 
-```cpp
-#include <iostream>
+### From source
 
-int main()
-{
-    using namespace std;
+Stable version (requires CMake >= 3.1):
 
-    cout << "Hello world!" << endl;
-    return 0;
-}
+```shell
+$ ver=0.0
+$ wget https://github.com/.../archive/v${ver}.tar.gz
+$ tar xzf v${ver}.tar.gz
+$ mkdir ...-${ver}/build
+$ cd ...-${ver}/build
+$ cmake ..
+$ make
+$ sudo make install
+```
+
+Latest master (requires git and CMake >= 3.1):
+
+```shell
+$ git clone https://github.com/.../....git
+$ mkdir .../build
+$ cd .../build
+$ cmake ..
+$ make
+$ sudo make install
 ```
 
 ## Authors
