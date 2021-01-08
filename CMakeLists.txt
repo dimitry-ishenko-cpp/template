@@ -40,10 +40,12 @@ add_executable(${PROJECT_NAME} ${LIBS} ${SOURCES})
 #add_library(${PROJECT_NAME} STATIC ${LIBS} ${SOURCES})
 
 # install
-install(TARGETS ${PROJECT_NAME} DESTINATION bin)
-#install(TARGETS ${PROJECT_NAME} DESTINATION lib)
-#install(DIRECTORY include/ DESTINATION include)
-install(FILES ${DOCS} DESTINATION share/doc/${PROJECT_NAME})
+include(GNUInstallDirs)
+
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+#install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+#install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(FILES ${DOCS} DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 ########################
 # object files
