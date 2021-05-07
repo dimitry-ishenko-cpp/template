@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 #add_definitions(-DASIO_STANDALONE)
-add_definitions(-DVERSION=${PROJECT_VERSION})
+add_definitions(-DVERSION="${PROJECT_VERSION}")
 
 #find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
 #set(CMAKE_AUTOMOC ON)
