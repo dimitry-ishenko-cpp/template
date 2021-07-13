@@ -9,6 +9,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 #add_definitions(-DASIO_STANDALONE)
 add_definitions(-DVERSION="${PROJECT_VERSION}")
 
+#find_package(Threads REQUIRED)
+
 #find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTORCC ON)
@@ -29,6 +31,7 @@ include(GNUInstallDirs)
 ########################
 # executable
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+#target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
 #target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
