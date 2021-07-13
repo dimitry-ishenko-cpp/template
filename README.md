@@ -49,7 +49,7 @@ Latest master (requires [git](https://git-scm.com/) and [CMake](https://cmake.or
 
 ```shell
 $ p=...
-$ git clone https://github.com/dimitry-ishenko/${p}.git
+$ git clone --recursive https://github.com/dimitry-ishenko/${p}.git
 $ mkdir ${p}/build
 $ cd ${p}/build
 $ cmake ..
