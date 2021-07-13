@@ -14,19 +14,19 @@ Project description.
 Debian/Ubuntu/etc:
 
 ```shell
-$ ver=0.0
-$ url=https://github.com/.../.../releases/download/v${ver}
-$ wget ${url}/..._${ver}_amd64.deb
-$ sudo apt install ./..._${ver}_amd64.deb
+$ p=...
+$ v=0.0
+$ wget https://github.com/dimitry-ishenko/${p}/releases/download/v${v}/${p}_${v}_amd64.deb
+$ sudo apt install ./${p}_${v}_amd64.deb
 ```
 
 RaspberryPi:
 
 ```shell
-$ ver=0.0
-$ url=https://github.com/.../.../releases/download/v${ver}
-$ wget ${url}/..._${ver}_armhf.deb
-$ sudo apt install ./..._${ver}_armhf.deb
+$ p=...
+$ v=0.0
+$ wget https://github.com/dimitry-ishenko/${p}/releases/download/v${v}/${p}_${v}_armhf.deb
+$ sudo apt install ./${p}_${v}_armhf.deb
 ```
 
 ### From source
@@ -34,11 +34,12 @@ $ sudo apt install ./..._${ver}_armhf.deb
 Stable version (requires [CMake](https://cmake.org/) >= 3.1):
 
 ```shell
-$ ver=0.0
-$ wget https://github.com/.../.../archive/v${ver}.tar.gz
-$ tar xzf v${ver}.tar.gz
-$ mkdir ...-${ver}/build
-$ cd ...-${ver}/build
+$ p=...
+$ v=0.0
+$ wget https://github.com/dimitry-ishenko/${p}/archive/v${v}.tar.gz
+$ tar xzf v${v}.tar.gz
+$ mkdir ${p}-${ver}/build
+$ cd ${p}-${ver}/build
 $ cmake ..
 $ make
 $ sudo make install
@@ -47,9 +48,10 @@ $ sudo make install
 Latest master (requires [git](https://git-scm.com/) and [CMake](https://cmake.org/) >= 3.1):
 
 ```shell
-$ git clone https://github.com/.../....git
-$ mkdir .../build
-$ cd .../build
+$ p=...
+$ git clone https://github.com/dimitry-ishenko/${p}.git
+$ mkdir ${p}/build
+$ cd ${p}/build
 $ cmake ..
 $ make
 $ sudo make install
