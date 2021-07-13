@@ -32,6 +32,7 @@ add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 #target_link_libraries(${PROJECT_NAME} Qt5::Core Qt5::Widgets)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES LICENSE.md README.md DESTINATION ${CMAKE_INSTALL_DOCDIR})
 
 ########################
 #string(REGEX REPLACE "^lib" "" LIBRARY_NAME ${PROJECT_NAME})
@@ -45,7 +46,7 @@ install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 #set_target_properties(shared PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR})
 
 #install(TARGETS shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
-#install(FILES LICENSE.md DESTINATION ${CMAKE_INSTALL_DOCDIR} COMPONENT shared)
+#install(FILES LICENSE.md README.md DESTINATION ${CMAKE_INSTALL_DOCDIR} COMPONENT shared)
 
 # static dev library and headers
 #add_library(static STATIC ${HEADERS} ${SOURCES})
