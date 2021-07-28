@@ -4,11 +4,6 @@ Project description.
 
 ## Installation
 
-### Prerequisites
-
-* Project A
-* Project B
-
 ### Binary
 
 Debian/Ubuntu/etc:
@@ -38,8 +33,8 @@ $ p=...
 $ v=0.0
 $ wget https://github.com/dimitry-ishenko/${p}/archive/v${v}.tar.gz
 $ tar xzf v${v}.tar.gz
-$ mkdir ${p}-${ver}/build
-$ cd ${p}-${ver}/build
+$ mkdir ${p}-${v}/build
+$ cd ${p}-${v}/build
 $ cmake ..
 $ make
 $ sudo make install
