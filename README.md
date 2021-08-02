@@ -31,8 +31,8 @@ Stable version (requires [CMake](https://cmake.org/) >= 3.1):
 ```shell
 $ p=...
 $ v=0.0
-$ wget https://github.com/dimitry-ishenko/${p}/archive/v${v}.tar.gz
-$ tar xzf v${v}.tar.gz
+$ wget https://github.com/dimitry-ishenko/${p}/releases/download/v${v}/${p}-${v}.tar.bz2
+$ tar xjf ${p}-${v}.tar.bz2
 $ mkdir ${p}-${v}/build
 $ cd ${p}-${v}/build
 $ cmake ..
