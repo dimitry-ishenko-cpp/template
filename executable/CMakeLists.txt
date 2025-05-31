@@ -22,7 +22,7 @@ include(GNUInstallDirs)
 #option(BUILD_... "Build ..." ON)
 #if(BUILD_...)
 #    add_subdirectory(...)
-#endif(BUILD_...)
+#endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
 #target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Widgets)
