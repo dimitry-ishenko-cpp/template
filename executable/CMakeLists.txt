@@ -24,7 +24,9 @@ include(GNUInstallDirs)
 #    add_subdirectory(...)
 #endif()
 
-add_executable(${PROJECT_NAME} main.cpp)
-#target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Widgets)
+set(name ${PROJECT_NAME}
 
-install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+add_executable(${name} main.cpp)
+#target_link_libraries(${name} PRIVATE Qt6::Core Qt6::Widgets)
+
+install(TARGETS ${name} DESTINATION ${CMAKE_INSTALL_BINDIR})
