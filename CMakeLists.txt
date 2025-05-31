@@ -15,19 +15,16 @@ add_definitions(-DVERSION="${PROJECT_VERSION}")
 #set(CMAKE_AUTORCC ON)
 #set(CMAKE_AUTOUIC ON)
 
-set(SOURCES src/main.cpp)
+include(GNUInstallDirs)
 
-# sub-project(s)
+#add_subdirectory(...)
+
 #option(BUILD_... "Build ..." ON)
 #if(BUILD_...)
 #    add_subdirectory(...)
 #endif(BUILD_...)
 
-include(GNUInstallDirs)
-
-########################
-# executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} main.cpp)
 #target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Core Qt6::Widgets)
 
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
