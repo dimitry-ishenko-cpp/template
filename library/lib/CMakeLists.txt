@@ -47,8 +47,30 @@ add_library(${name}::${name} ALIAS ${name}_shared)
 
 ####################
 install(TARGETS ${name}_shared ${name}_static
+    EXPORT ${name}Targets
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
 install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${name})
+
+install(EXPORT ${name}Targets
+    FILE ${name}Targets.cmake
+    NAMESPACE ${name}::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${name}
+)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(${name}ConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/${name}Config.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${name}
+)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${name}ConfigVersion.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/${name}Config.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${name}
+)
