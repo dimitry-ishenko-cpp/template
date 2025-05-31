@@ -41,7 +41,9 @@ foreach(target ${name}_objects ${name}_static ${name}_shared)
     #target_link_libraries(${target} PUBLIC Qt6::Core Qt6::Widgets)
 endforeach()
 
-add_library(${name} ALIAS ${name}_shared)
+add_library(${name}::${name}_static ALIAS ${name}_static)
+add_library(${name}::${name}_shared ALIAS ${name}_shared)
+add_library(${name}::${name} ALIAS ${name}_shared)
 
 ####################
 install(TARGETS ${name}_shared ${name}_static
