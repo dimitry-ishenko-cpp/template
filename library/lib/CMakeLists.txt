@@ -11,9 +11,10 @@ include(GNUInstallDirs)
 #pkg_check_modules(asio REQUIRED IMPORTED_TARGET asio)
 
 ####################
-set(HEADERS
-    mine/mine.hpp
-)
+set(name ${PROJECT_NAME})
+
+file(GLOB HEADERS CONFIGURE_DEPENDS ${name}/*.hpp)
+set(OVERALL_HEADER ${name}.hpp)
 
 set(SOURCES
     mine.cpp
@@ -22,9 +23,7 @@ set(SOURCES
 set(DEPENDS ) # Qt6::Core Qt6::Widgets PkgConfig::asio
 
 ####################
-set(name ${PROJECT_NAME})
-
-add_library(${name}_objects OBJECT ${HEADERS} ${SOURCES})
+add_library(${name}_objects OBJECT ${SOURCES})
 set_target_properties(${name}_objects PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(${name}_objects PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${name}_objects PRIVATE ${DEPENDS})
@@ -66,6 +65,7 @@ install(TARGETS ${name}_shared ${name}_static
 )
 
 install(FILES ${HEADERS} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${name})
+install(FILES ${OVERALL_HEADER} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 install(EXPORT ${name}Targets
     FILE ${name}Targets.cmake
