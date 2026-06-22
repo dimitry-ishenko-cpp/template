@@ -2,12 +2,15 @@
 
 include(GNUInstallDirs)
 
-####################
 #find_package(Qt6 COMPONENTS Core Widgets REQUIRED)
 #set(CMAKE_AUTOMOC ON)
 #set(CMAKE_AUTORCC ON)
 #set(CMAKE_AUTOUIC ON)
 
+#find_package(PkgConfig REQUIRED)
+#pkg_check_modules(asio REQUIRED IMPORTED_TARGET asio)
+
+####################
 set(HEADERS
     mine/mine.hpp
 )
@@ -16,7 +19,7 @@ set(SOURCES
     mine.cpp
 )
 
-set(DEPENDS ) # Qt6::Core Qt6::Widgets
+set(DEPENDS ) # Qt6::Core Qt6::Widgets PkgConfig::asio
 
 ####################
 set(name ${PROJECT_NAME})
