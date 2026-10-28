@@ -5,7 +5,7 @@
 // Distributed under the GNU GPL license. See the LICENSE.md file for details.
 
 ////////////////////////////////////////////////////////////////////////////////
-#include <mine/mine.hpp>
+#include <mine.hpp>
 
 int main()
 {
